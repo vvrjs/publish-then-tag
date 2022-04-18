@@ -1,3 +1,3 @@
-export function getNpmVersion(): Promise<string> {
-
+export async function getNpmVersion(): Promise<string> {
+    return "1";
 }
