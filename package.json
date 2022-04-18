@@ -1,0 +1,32 @@
+{
+  "name": "@vvrjs/publish-then-tag",
+  "access": "public",
+  "version": "1.0.0",
+  "description": "github action to publish npm package then tag git commit with the same version",
+  "scripts": {
+    "lint": "npx eslint -c .eslintrc.json --fix --ext .ts src",
+    "compile": "npm run lint && npx tsc",
+    "build": "npm run compile && npm run bundle",
+    "bundle": "npx ncc build build/index.js -o dist",
+    "createPackage": "npm run build"
+  },
+  "keywords": [],
+  "author": "Vladimir Repin",
+  "repository": {
+    "type": "git",
+    "url": "git@github.com:vvrjs/publish-then-tag.git"
+  },
+  "devDependencies": {
+    "@types/fs-extra": "^9.0.13",
+    "@types/node": "^17.0.25",
+    "@types/yargs": "^17.0.10",
+    "@vercel/ncc": "^0.33.4",
+    "typescript": "^4.6.3"
+  },
+  "dependencies": {
+    "@actions/core": "^1.6.0",
+    "@b08/spawn": "^3.0.6",
+    "fs-extra": "^10.1.0",
+    "node-fetch-with-proxy": "^0.1.6"
+  }
+}
