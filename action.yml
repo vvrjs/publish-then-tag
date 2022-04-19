@@ -1,0 +1,21 @@
+name: 'intel/publish-and-tag@v1'
+description: 'action to publish npm package and set the same git tag to git commit'
+inputs:
+  npmToken:
+    description: 'npm authorization token, will be appended to .npmrc as is'
+    required: false
+  githubToken:
+    description: 'github authorization token, will be used to create a tag via github api'
+    required: false
+  repo:
+    description: '$GITHUB_REPOSITORY'
+    required: false
+  sha:
+    description: '$GITHUB_SHA'
+    required: false
+  dryRun:
+    description: 'flag to check version for auto publish possibility'
+    required: false
+runs:
+  using: 'node16'
+  main: 'dist/index.js'
