@@ -1,21 +1,21 @@
-name: 'intel/publish-and-tag@v1'
+name: 'vvrjs/publish-then-tag@v0.1'
 description: 'action to publish npm package and set the same git tag to git commit'
 inputs:
   npmToken:
     description: 'npm authorization token, will be appended to .npmrc as is'
-    required: false
+    required: true
   githubToken:
     description: 'github authorization token, will be used to create a tag via github api'
-    required: false
+    required: true
   repo:
     description: '$GITHUB_REPOSITORY'
-    required: false
+    required: true
   sha:
     description: '$GITHUB_SHA'
-    required: false
-  dryRun:
-    description: 'flag to check version for auto publish possibility'
-    required: false
+    required: true
+  mode:
+    description: 'operation mode CI or CD'
+    required: true
 runs:
   using: 'node16'
   main: 'dist/index.js'
