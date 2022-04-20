@@ -98,21 +98,41 @@ __exportStar(__nccwpck_require__(324), exports);
 
 "use strict";
 
-var __importDefault = (this && this.__importDefault) || function (mod) {
-    return (mod && mod.__esModule) ? mod : { "default": mod };
+var __createBinding = (this && this.__createBinding) || (Object.create ? (function(o, m, k, k2) {
+    if (k2 === undefined) k2 = k;
+    var desc = Object.getOwnPropertyDescriptor(m, k);
+    if (!desc || ("get" in desc ? !m.__esModule : desc.writable || desc.configurable)) {
+      desc = { enumerable: true, get: function() { return m[k]; } };
+    }
+    Object.defineProperty(o, k2, desc);
+}) : (function(o, m, k, k2) {
+    if (k2 === undefined) k2 = k;
+    o[k2] = m[k];
+}));
+var __setModuleDefault = (this && this.__setModuleDefault) || (Object.create ? (function(o, v) {
+    Object.defineProperty(o, "default", { enumerable: true, value: v });
+}) : function(o, v) {
+    o["default"] = v;
+});
+var __importStar = (this && this.__importStar) || function (mod) {
+    if (mod && mod.__esModule) return mod;
+    var result = {};
+    if (mod != null) for (var k in mod) if (k !== "default" && Object.prototype.hasOwnProperty.call(mod, k)) __createBinding(result, mod, k);
+    __setModuleDefault(result, mod);
+    return result;
 };
 Object.defineProperty(exports, "__esModule", ({ value: true }));
-const core_1 = __importDefault(__nccwpck_require__(186));
+const core = __importStar(__nccwpck_require__(186));
 const publishThenTagCD_1 = __nccwpck_require__(989);
 const publishThenTagCI_1 = __nccwpck_require__(781);
 const mode_enum_1 = __nccwpck_require__(761);
-const npmToken = core_1.default.getInput("npmToken");
-const githubToken = core_1.default.getInput("githubToken");
-const repo = core_1.default.getInput("repo");
-const sha = core_1.default.getInput("sha");
-const mode = core_1.default.getInput("mode");
+const npmToken = core.getInput("npmToken");
+const githubToken = core.getInput("githubToken");
+const repo = core.getInput("repo");
+const sha = core.getInput("sha");
+const mode = core.getInput("mode");
 publishThenTag(npmToken, githubToken, repo, sha, mode)
-    .catch(err => core_1.default.setFailed(err.message));
+    .catch(err => core.setFailed(err.message));
 async function publishThenTag(npmToken, githubToken, repo, sha, mode) {
     switch (mode) {
         case mode_enum_1.PTTMode.CI:

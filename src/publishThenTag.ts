@@ -1,4 +1,4 @@
-import core from "@actions/core";
+import * as core from "@actions/core";
 import { publishThenTagCD } from "./CD/publishThenTagCD";
 import { publishThenTagCI } from "./CI/publishThenTagCI";
 import { PTTMode } from "./types/mode.enum";
